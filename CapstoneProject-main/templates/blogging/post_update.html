@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}  Post Update {% endblock %}
+{% block content %}
+
+<center>
+  <h2 class="mb-2 font-weight-bold" style="font-family: 'Bebas Neue', cursive;padding-top: 50px; font-weight:bold;color: black;"> POST INFORMATION </h2>
+</center>
+
+
+<div class='container mt-3 mb-3'>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{form|crispy}}
+
+  <div class="row">
+        <div class="col-md-4 mb-3 mr-3">
+                <input type="submit" value="Update" class="btn btn-warning btn-block">
+        </div>
+
+          <div class="col-md-4 mb-3 mr-3">
+                <a href="{% url 'blogApp:post_detail' blog=posts.blog.slug topic=posts.topic.slug slug=posts.slug %}" class="btn btn-danger btn-block">Cancel Update</a>
+         </div>
+    
+</div>
+</form>
+</div>
+
+{% endblock %}

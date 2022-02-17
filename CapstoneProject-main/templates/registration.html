@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} {% block title %}Register{% endblock %} {% block content %}
+
+<style>
+    body {
+        background-image: linear-gradient(to right bottom, #d88bcd, #fe92a8, #ffa989, #efc77f, #cce397);
+}
+</style>
+
+<div class="container mt-3 mb-3 ">
+
+    {% if registered %}
+    <center>
+        <h1 class="mb-2 mt-5 font-weight-bold" style="font-family: 'Bebas Neue', cursive;padding-top: 50px; font-weight:bold;color: black;"> Thank You For Sigup </h1>
+    </center>
+    
+    {% else %}
+     
+  <center>
+        <h2 class="mb-2 font-weight-bold" style="font-family: 'Bebas Neue', cursive;padding-top: 50px; font-weight:bold;color: black;"> CREATE AN ACCOUNT </h2>
+    </center>
+
+    
+    <hr>
+
+    <form method="post" enctype="multipart/form-data">
+
+        {% csrf_token %} {{ user_form|crispy }} {{ profile_form|crispy }}
+
+        <div class="row justify-content-center">
+            <div class="col-md-6 mt-3 mb-3">
+                <input type="submit" value="Register" class="btn btn-primary btn-block">
+            </div>
+        </div>
+
+    </form>
+
+
+</div>
+
+{% endif %} {%endblock%}

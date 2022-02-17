@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+{%load static %}
+{% load crispy_forms_tags %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Benne&family=Metrophobic&display=swap" rel="stylesheet">
+
+
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="{%static 'css/home.css' %}" />
+
+  <title>Document</title>
+
+
+
+</head>
+
+
+
+<body>
+
+  <style>
+    center {
+      background: -webkit-linear-gradient(left, #71da51, #72cf07);
+    }
+    #jk{
+      background: -webkit-linear-gradient(left, #71da51, #4ed326);
+
+    }
+
+    .banner-section {
+      background-image: url("/static/image/ui.jpg");
+      background-size: cover;
+      height: 380px;
+      left: 0;
+
+      top: 0;
+      background-position: 0;
+    }
+
+    img {
+      background-size: cover;
+      height: auto;
+      width: 100%;
+      left: 0;
+
+      top: 0;
+      background-position: 0;
+
+    }
+  </style>
+
+
+  <!--Navbar Start-->
+
+
+
+  <nav class="navbar navbar-expand-lg shadow navbar-custom sticky-top">
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" style="background-color: white;"></span>
+    </button>
+
+
+    <a href="{% url 'index' %}" class="navbar-brand "
+      style="font-family: 'sofia', sans-serif; color: white; font-weight: bold;"> BD
+      University Community </a>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+      <ul class="navbar-nav ml-auto mt-lg-3">
+
+
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'index' %}"
+            style="color:white; font-family: 'Montserrat', sans-serif;">Home<span class="sr-only">(current)</span></a>
+        </li>
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color:white; font-family: 'Montserrat', sans-serif;" href="#"
+            id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Blogs
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'blogApp:topic_list' slug='achievements' %}">Achievements</a>
+            <a class="dropdown-item" href="{% url 'blogApp:topic_list' slug='ask-questions' %}">Ask
+              Question</a>
+            <a class="dropdown-item" href="{% url 'blogApp:topic_list' slug='study-materials' %}">Share
+              Knowledge</a>
+            <a class="dropdown-item" href="{% url 'blogApp:topic_list' slug='events' %}">Events</a>
+          </div>
+
+
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color:white; font-family: 'Montserrat', sans-serif;" href="#"
+            id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Notes
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+            <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='architecture'%}">ARCHITECTURE</a>
+            <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='applied-physics' %}">APPLIED
+              PHYSICS</a>
+            <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='applied-chemistry' %}">APPLIED
+              CHEMISTRY</a>
+            <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='bba' %}">BBA</a>
+            <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='cse' %}">CSE</a>
+            <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='civil' %}">CIVIL</a>
+            <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='eee' %}">EEE</a>
+            <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='echonomics' %}">ECONOMICS</a>
+
+            <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='honourse' %}">HONOURSE</a>
+
+
+            <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='mba' %}">MBA</a>
+
+            <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='mbbs' %}">MBBS</a>
+            <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='microbiology' %}">MICROBIOLOGY</a>
+            <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='pharmacy' %}">PHARMACY</a>
+          </div>
+
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="color:white; font-family: 'Montserrat', sans-serif;"> Contact us
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook"
+              viewBox="0 0 16 16">
+              <path
+                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+            </svg>
+
+
+
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="color:white; font-family: 'Montserrat', sans-serif;">
+
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="color:white; font-family: 'Montserrat', sans-serif;">
+
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <!--searchBar-->
+
+          <form class="form-inline my-2 my-lg-0" id="speak-form" action="{% url 'noteSellingApp:searchbar' %}"
+            method="get">
+
+            <input class="form-control mr-sm-2  d-none d-lg-block" id="transcript" style="border-radius: 50px;"
+              type="search" name="search" placeholder="Search" aria-label="Search">
+            <span class="btn btn-outline-success  mr-sm-2  d-none d-lg-block" style="border-radius: 50px;">
+
+              <svg onclick="startRecording()" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+                <path
+                  d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z" />
+                <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z" />
+              </svg>
+
+            </span>
+
+
+            <button class="btn btn-outline-success  mr-sm-2  d-none d-lg-block" style="border-radius: 50px;"
+              type="submit"> <i class="fa fa-search"></i> Search For Notes</button>
+
+
+          </form>
+        </li>
+        <!--end of searchBar-->
+
+
+
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color:white; font-family: 'Montserrat', sans-serif;" href="#"
+            id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+
+
+
+
+
+            {% if user.is_authenticated %}
+
+            <a class="dropdown-item" href="{% url 'profile' user.username %}">Profile</a>
+
+
+            <a class="dropdown-item" href="{% url 'user_logout' %}">logout</a> {% else %}
+            <a class="dropdown-item" href="{% url 'user_login' %}">login</a> {% endif %}
+
+
+
+
+
+
+
+          </div>
+        </li>
+
+
+
+
+      </ul>
+
+
+    </div>
+
+
+
+  </nav>
+
+  <!--navbar finsihed-->
+
+  <section class="banner-section">
+  </section>
+
+  <br>
+
+  <!--videoSection-->
+  {% if posts.video %}
+<div class="container">
+  <center>
+    <h2 class="mb-2 font-weight-bold"
+  style="font-family: 'Bebas Neue', cursive;padding-top:50px;padding-left: 30px; font-weight:bold;color: black;">
+  VIDEO </h2>
+  <br>
+  </center>
+  
+
+  <div class="row">
+
+    <div class="col-lg-6 col-md-12 col-sm-12">
+
+      
+
+      
+      <hr>
+      <br> <br>
+  
+      <video id="my-video" class="video-js col-lg-12 col-md-12 col-sm-12" controls preload="auto" width="640" height="350"
+        poster="" data-setup="{}">
+        <source src="{{ posts.video.url}}" type="video/mp4" />
+      </video>
+  
+  
+  
+     
+
+
+
+
+
+    </div>
+
+    <div class="col-lg-4 col-md-12 col-sm-12">
+
+      
+      <h2
+      style="font-family: 'Bebas Neue', cursive;font-weight: bold; padding-left:30px;padding-top: 100px; color: black; ">
+
+     Subscribe To My Youtube Channel For More Videos.<br>
+     LINK : <a href=" {{ posts.link }} " class="btn"> {{posts.link}} </a>
+
+
+     </h2>
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+
+
+
+
+</div>
+
+
+{% else %}
+  
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+  <!--end of video-->
+
+
+  <h1 class="mb-2 font-weight-bold"
+    style="font-family: 'Bebas Neue', cursive;padding-top: 50px;padding-left: 140px; font-weight:bold;color: black;">
+    {{posts.title }}</h1>
+  <h4 class="mb-2 font-weight-bold"
+    style="font-family: 'Bebas Neue', cursive;padding-left: 140px;font-weight:bold;color: black;">
+    Posted On - {{ posts.created_at }} - {{ posts.created_by }} <br> LINK : <a href=" {{ posts.link }} " class="btn"> {{posts.link}} </a> <br></h4>
+
+  <hr>
+
+
+
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-12 col-lg-8 mr-auto">
+
+        {% if posts.post_image %}
+
+        <img src="{{ posts.post_image.url }}">
+
+        {% endif %}
+
+      </div>
+
+      <div class="col-md-12 col-lg-12 mt-3 mb-3" style="padding-top: 50px; padding-right: 30px;">
+
+        <h4 style="font-family: 'Metrophobic', sans-serif;"> {{ posts.article }} <br> LINK : <a href=" {{ posts.link }} " class="btn"> {{posts.link}} </a> </h4>
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+  </div>
+  <div class="container">
+
+   
+
+      <h2 class="mb-2 font-weight-bold"
+        style="font-family: 'Bebas Neue', cursive;padding-top: 50px;padding-right: 10px;padding-left: 10px; font-weight:bold;color: black;">
+
+        <form method="post">
+          <div class="form-group">
+            {% csrf_token %}
+            {{form|crispy}}
+            <input type="submit" name="form" value="Add Comment" class="btn btn-primary btn-sm">
+          </div>
+        </form>
+        <br>
+
+<div class="container-fluid mt-3 mb-3" id ="jk" style="padding-top:30px;">
+
+  <center> Comment And Replies</center>
+      {% for comment in posts.comments.all %}
+
+      <div class="col-md-8 mt-3 mb-2">
+        <div class="media border p-3">
+        
+          <img src="{% static 'image/user_avatar.png' %}" alt="pic" class="mr-3 mt-3 rounded-circle"
+            style="width:60px;">
+            
+          <div class="media-body mt-1 ">
+            
+            <h4><center>Comment box</center> <a class="dropdown-item" href="{% url 'profile' comment.author %}">{{comment.author}}</a></h4>
+            <p>{{comment.body}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+      {% for reply in comment.replies.all %}
+      
+      
+      <div class="col-md-8 mt-2 mb-2">
+        <div class="media border p-3 mb-3">
+          
+          <img src="{% static 'image/user_avatar.png' %}" alt="pic" class="mr-3 mt-3 rounded-circle"
+            style="width:60px;">
+           
+          <div class="media-body mb-3">
+            
+            <h4> <center>Reply of the comment </center> <a class="dropdown-item" href="{% url 'profile' reply.author %}">{{reply.author}}</a></h4>
+            <p>{{reply.reply_body}}</p>
+
+          </div>
+        </div>
+      </div>
+
+
+      {% endfor %}
+
+  </div>  
+  <br>
+
+      <form method="post">
+        <input type="hidden" name="comment.id" value="{{comment.id}}">
+        <input type="hidden" name="comment.comm_name" value="{{comment.comm_name}}">
+        {% csrf_token %}
+        {{form2.as_p}}
+        <input type="submit" name="form2" value="Add Reply" class="btn btn-warning btn-sm">
+      </form>
+
+      <br> <br><hr>
+
+      {% endfor %}
+
+      
+
+
+
+    </h2>
+    <br> <br>
+    <hr>
+
+
+    <center>
+
+      <h2 class="mb-2 font-weight-bold"
+          style="font-family: 'Bebas Neue', cursive;padding-top: 50px;padding-left: 30px; font-weight:bold;color: black;">
+
+          {% ifequal request.user.username posts.created_by.username %}
+
+          <div class="col-md-6 mb-3 text-center">
+            <a href="{% url 'blogApp:post_update' blog=posts.blog.slug topic=posts.topic.slug slug=posts.slug %}"
+            class="btn btn-warning btn-lg mr-4 btn-block">Update Post</a>
+        </div>
+          <div class="col-md-6">
+            <a href="{% url 'blogApp:post_delete' blog=posts.blog.slug topic=posts.topic.slug slug=posts.slug %}"
+            class="btn btn-danger btn-lg mr-4 btn-block"> Delete Post </a>
+        </div>
+    
+
+          {% else %}
+
+
+          {% endifequal %}
+
+
+
+
+      </h2>
+  </center>
+
+ 
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--footer-->
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+  <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+
+
+  <!--new-->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+    integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+    integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+    crossorigin="anonymous"></script>
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+  <!--js work autocomplete-->
+
+  <script>
+
+
+
+    $(function () {
+
+      $("#transcript").autocomplete({
+        source: "{% url 'noteSellingApp:autosuggest' %}"
+      });
+
+
+    });
+
+
+
+
+  </script>
+
+
+  <!--js-->
+
+  <script>  function startRecording() {
+
+      if (window.hasOwnProperty('webkitSpeechRecognition')) {
+
+        var recognition = new webkitSpeechRecognition();
+
+        recognition.continuous = false;
+
+        recognition.interimResults = false;
+
+        recognition.lang = "en-US";
+
+        recognition.start();
+
+        recognition.onresult = function (e) {
+
+          document.getElementById('transcript').value = e.results[0][0].transcript;
+
+          recognition.stop();
+
+          document.getElementById('speak-form').submit();
+
+        };
+
+        recognition.onerror = function (e) {
+
+          recognition.stop();
+
+        }
+
+      }
+
+    }
+
+  </script>
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}  lesson Update {% endblock %}
+{% block content %}
+
+
+<center>
+  <h2 class="mb-2 font-weight-bold" style="font-family: 'Bebas Neue', cursive;padding-top: 50px;padding-left: 30px; font-weight:bold;color: black;"> UPDATE INFORMATION </h2>
+</center>
+
+
+<div class='container mt-3 mb-3'>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{form|crispy}}
+
+  <div class="row">
+        <div class="col-md-4 mb-3 mr-3">
+                <input type="submit" value="Update" class="btn btn-warning btn-block">
+        </div>
+
+          <div class="col-md-4 mb-3 mr-3">
+               <a href="{% url 'noteSellingApp:lesson_detail' standard=lessons.Standard.slug course=lessons.course.slug slug=lessons.slug %}" class="btn btn-danger btn-block">Cancel Update</a>
+        </div>
+         </div>
+    
+</div>
+</form>
+</div>
+ 
+{% endblock %}

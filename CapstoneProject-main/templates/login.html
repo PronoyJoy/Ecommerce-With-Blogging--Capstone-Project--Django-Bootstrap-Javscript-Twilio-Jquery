@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} {% block title %} Login Page{% endblock %} {% block content %}
+
+
+<style>
+    body {
+        background-image: linear-gradient(to right bottom, #d88bcd, #fe92a8, #ffa989, #efc77f, #cce397);
+}
+</style>
+
+<section class="text-center mt-4">
+
+           <h2 class="mb-2 font-weight-bold" style="font-family: 'Bebas Neue', cursive;padding-top: 50px;padding-left: 30px; font-weight:bold;color: black;"> LOGIN </h2>
+    <hr>
+
+    <div class="row d-flex justify-content-center mb-2">
+        <form action="{% url 'user_login' %}" method="post">
+            <div class="form-group">
+
+
+                {% csrf_token %}
+                <div class="col-md-12">
+                    <div class="row">
+
+
+                        <label for="username">Username:</label>
+                        <input type="text" name="username" placeholder="Username" class="form-control">
+
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" class="form-control">
+                    </div>
+                    <div class="row justify-content-center">
+                        <input type="submit" value="Login" class="btn btn-success btn-lg mt-3">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        
+
+
+    </div>
+
+    <a class="btn  mt-3" href="{% url 'register' %}"> New to BDUniversity Community ? Create an Account</a> <br>
+    <a class="btn  mt-3" href="#">Forgot Password ?</a>
+    <br>
+
+
+</section>
+
+{% endblock %}

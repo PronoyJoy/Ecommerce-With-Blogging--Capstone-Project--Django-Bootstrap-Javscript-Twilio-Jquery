@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Post Update {% endblock %}
+{% block content %}
+
+
+<div class="container mt-3 mb-3 ">
+  <style>
+    body {
+        background-image: linear-gradient(to right bottom, #d88bcd, #fe92a8, #ffa989, #efc77f, #cce397);
+}
+</style>
+
+
+  <center>
+
+    <h2 class="mb-2 font-weight-bold" style="font-family: 'Bebas Neue', cursive;padding-top: 20PX; font-weight:bold;color: black;">Are you sure you want to delete {{posts.name}}?</h2>
+    <hr>
+
+  </center>
+  
+  <form method="post">
+    {% csrf_token %}
+
+    <div class="container">
+
+
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <input type="submit" value="Delete" class="btn btn-danger btn-block">
+        </div>
+        <div class="col-md-4 mb-3 ">
+          <a href="{% url 'blogApp:post_detail' blog=posts.blog.slug topic=posts.topic.slug slug=posts.slug %}"
+            class="btn btn-success btn-block">Cancel Delete</a>
+        </div>
+      </div>
+
+
+  </form>
+
+
+</div>
+{% endblock %}

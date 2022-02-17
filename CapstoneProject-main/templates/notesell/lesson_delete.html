@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<style>
+        body {
+            background-image: linear-gradient(to right bottom, #d88bcd, #fe92a8, #ffa989, #efc77f, #cce397);
+    }
+    </style>
+    
+<h2 class="mb-2 font-weight-bold" style="font-family: 'Bebas Neue', cursive;padding-top: 20PX; font-weight:bold;color: black;">Are you sure you want to delete {{lessons.name}} ? </h2>
+<hr>
+
+
+<form method="post">
+  {% csrf_token %}
+  <div class="row">
+        <div class="col-md-4 mb-3 mr-3">
+                <input type="submit" value="Delete" class="btn btn-danger btn-block">
+        </div>
+        <div class="col-md-4 mb-3 mr-3">
+                <a href="{% url 'noteSellingApp:lesson_detail' standard=lessons.Standard.slug course=lessons.course.slug slug=lessons.slug %}" class="btn btn-success btn-block">Cancel Deletion</a>
+        </div>
+  </div>
+</form>
+
+{% endblock %}

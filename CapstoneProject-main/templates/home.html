@@ -1,0 +1,1438 @@
+<!DOCTYPE html> {%load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <link rel="stylesheet" href="{%static 'css/base.css' %}" />
+   
+
+
+    <title>Document</title>
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+    <!--Navbar Start-->
+
+
+
+    <nav class="navbar navbar-expand-lg shadow navbar-custom sticky-top">
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="background-color: white;"></span>
+        </button>
+
+
+        <a href="{% url 'index' %}" class="navbar-brand "
+            style="font-family: 'sofia', sans-serif; color: white; font-weight: bold;"> BD
+            University Community </a>
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+            <ul class="navbar-nav ml-auto mt-lg-3">
+
+
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'index' %}"
+                        style="color:white; font-family: 'Montserrat', sans-serif;">Home<span
+                            class="sr-only">(current)</span></a>
+                </li>
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" style="color:white; font-family: 'Montserrat', sans-serif;"
+                        href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Blogs
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item"
+                            href="{% url 'blogApp:topic_list' slug='achievements' %}">Achievements</a>
+                        <a class="dropdown-item" href="{% url 'blogApp:topic_list' slug='ask-questions' %}">Ask
+                            Question</a>
+                        <a class="dropdown-item" href="{% url 'blogApp:topic_list' slug='study-materials' %}">Share
+                            Knowledge</a>
+                        <a class="dropdown-item" href="{% url 'blogApp:topic_list' slug='events' %}">Events</a>
+                    </div>
+
+
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" style="color:white; font-family: 'Montserrat', sans-serif;"
+                        href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Notes
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='architecture'%}">ARCHITECTURE</a>
+                        <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='applied-physics' %}">APPLIED PHYSICS</a>
+                        <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='applied-chemistry' %}">APPLIED CHEMISTRY</a>
+                        <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='bba' %}">BBA</a>
+                        <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='cse' %}">CSE</a>
+                        <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='civil' %}">CIVIL</a>
+                        <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='eee' %}">EEE</a>
+                        <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='echonomics' %}">ECONOMICS</a>
+                     
+                        <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='honourse' %}">HONOURSE</a>
+
+                        
+                        <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='mba' %}">MBA</a>
+
+                        <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='mbbs' %}">MBBS</a>
+                        <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='microbiology' %}">MICROBIOLOGY</a>
+                        <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='pharmacy' %}">PHARMACY</a>
+                    </div>
+
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}" style="color:white; font-family: 'Montserrat', sans-serif;"> Contact us
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-facebook" viewBox="0 0 16 16">
+                            <path
+                                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                        </svg>
+
+
+
+                    </a>
+                </li>
+            
+
+
+
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" style="color:white; font-family: 'Montserrat', sans-serif;"
+                        href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Account
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+
+                        
+
+
+
+                        {% if user.is_authenticated %}
+
+                        <a class="dropdown-item" href="{% url 'profile' user.username %}">Profile</a>
+
+
+                        <a class="dropdown-item" href="{% url 'user_logout' %}">logout</a> {% else %}
+                        <a class="dropdown-item" href="{% url 'user_login' %}">login</a> {% endif %}
+
+
+
+
+
+
+
+                    </div>
+                </li>
+
+
+
+
+            </ul>
+
+
+        </div>
+
+
+
+    </nav>
+
+
+    <!--navbar finsihed-->
+
+<!--searchBar-->
+ <div class="d-flex justify-content-center" style=" height: 150px;padding-left:50px;
+ background-image: linear-gradient(to right top, #b6cfd5, #a4d4dc, #8fd9e0, #77dee1, #5ce3df, #49dedf, #32d8df, #00d3df, #00c2de, #00b0da, #2b9ed1, #448cc4);">
+
+
+
+        <form class="form-inline my-2 my-lg-0" id="speak-form" action="{% url 'noteSellingApp:searchbar' %}"
+            method="get">
+
+            <input class="form-control mr-sm-2 mb-2" size="60" style="border-radius: 50px;padding-right:2-px;border-style: solid;"
+                id="transcript" type="search" name="search" aria-label="Search">
+
+            <a href="{% url 'register' %}" style="font-family:'Bebas Neue' ; color: rgb(9, 134, 51);"><button
+                    type="submit" class="btn ">
+                    <h4> <i class="fa fa-search"></i></h4>
+                </button> </a>
+
+            <div class="ml-3 d-none d-lg-block">
+                <h4> <img src="{% static 'image/mic3.jpg' %}" onclick="startRecording()" style=" width:40; height:40px;"
+                        alt="mic">
+                </h4>
+            </div>
+
+        </form>
+
+    </div>
+
+<!--endsearch-->
+
+
+
+<div class="container-fluid w-100 mt-2 mb-3">
+
+
+        <div class="row mt-2">
+
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-3 mt-3 ml-7" style="padding-left: 30px;" id="">
+
+
+
+                {% if user.is_authenticated %}
+                <h1
+                    style="font-family: 'Bebas Neue', cursive;padding-top: 50px;padding-left: 30px; font-weight:bold;color: black;">
+                    Welcome to
+                    BD University Community</h1>
+
+                {% else %}
+
+
+
+                <h1
+                    style="font-family: 'Bebas Neue', cursive;padding-top: 50px;padding-left: 30px; font-weight:bold;color: black;">
+
+                    Join The Biggest University Student Community of Bangladesh.<br>
+                    Share Your Achievements!<br>
+                    Sell Your Notes And Earn Money !
+
+                    <br>
+
+                    <div class="mt-3">
+
+                        <a href="{% url 'register' %}"
+                            style="font-family:'Bebas Neue' ; color: rgb(9, 134, 51);"><button type="button"
+                                class="btn btn-warning btn-lg btn-bloc"> Get Started </button> </a>
+
+                    </div>
+
+                </h1>
+
+
+                {% endif %}
+
+
+                </h1>
+
+
+
+
+
+            </div>
+
+
+
+
+
+            <div class=" col-lg-6 col-md-12 col-sm-12 col-12 mb-3 mt-3" style="padding-left: 30px;">
+
+
+                <img src="{% static 'image/vector 1.jpg' %}" style=" width:100%; height:100%;" alt="">
+
+
+
+
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+    <!--endofsignup-->
+
+
+
+
+
+
+
+
+
+    <!--Carousol-->
+
+    <div class="w-100 container-fluid">
+
+        <div id="carouselId" class="carousel slide shadow w-80" data-ride="carousel">
+            <!-- the main inner part of the carousel -->
+            <div class="carousel-inner">
+
+                <div class="carousel-item active " data-interval="5000">
+                    <img src="{% static 'image/uiuu.jpg' %}" style=" width:100%; height:600px;" alt="Project 1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 style="font-family: 'sofia', sans-serif; font-weight: bold; "></h2>
+                        <h5></h5>
+                    </div>
+                </div>
+
+
+
+
+                <div class="carousel-item" data-interval="5000">
+                    <img src="{% static 'image/convo.jpg' %}" style=" width:100%; height:600px" alt="Project 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 style="font-family: 'sofia', sans-serif;font-weight: bold;"></h2>
+                        <h5></h5>
+                    </div>
+                </div>
+
+                <div class="carousel-item" data-interval="5000">
+                    <img src="{% static 'image/vc sirs.jpg' %}" style=" width:100%; height:600px" alt="Project 3">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 style="font-family: 'sofia', sans-serif;font-weight: bold;"></h2>
+                        <h5></h5>
+                    </div>
+                </div>
+
+                <div class="carousel-item" data-interval="5000">
+                    <img src="{% static 'image/club forum.jpg' %}" style=" width:100%; height:600px" alt="Project 3">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 style="font-family: 'sofia', sans-serif;font-weight: bold;"></h2>
+                        <h5></h5>
+                    </div>
+                </div>
+
+                <div class="carousel-item" data-interval="5000">
+                    <img src="{% static 'image/champ.jpg' %}" style=" width:100%;height:600px" alt="Project 3">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 style="font-family: 'sofia', sans-serif;font-weight: bold;"></h2>
+                        <h5></h5>
+                    </div>
+                </div>
+                <div class="carousel-item" data-interval="5000">
+                    <img src="{% static 'image/151.jpg' %}" style=" width:100%;height:600px" alt="Project 3">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 style="font-family: 'sofia', sans-serif;font-weight: bold;"></h2>
+                        <h5> </h5>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+            <!-- adding indicators for each slide -->
+            <ol class="carousel-indicators">
+                <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselId" data-slide-to="1"></li>
+                <li data-target="#carouselId" data-slide-to="2"></li>
+                <li data-target="#carouselId" data-slide-to="3"></li>
+                <li data-target="#carouselId" data-slide-to="4"></li>
+                <li data-target="#carouselId" data-slide-to="5"></li>
+
+            </ol>
+
+            <!-- adding left-right move buttons -->
+            <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+
+            <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+
+        </div>
+        <hr>
+
+    </div>
+
+    <!--blogs button-->
+
+
+
+
+
+    <div class="container-fluid w-100 mt-5 bg-black">
+
+
+        <div class="row mt-2">
+
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-3  ml-7" style="padding-left: 30px;" id="">
+
+
+                <img src="{% static 'image/vector5.jpg' %}" style=" width:100%; height:100%;alt="">
+
+
+            </div>
+
+
+
+
+            <div class=" col-lg-4 col-md-12 col-sm-12 col-12 mb-3 mt-3" style="padding-left: 30px;" id="">
+
+
+
+                <h1
+                    style="font-family: 'Bebas Neue', cursive;font-weight: bold; padding-left:80px; padding-top:50px;color:  yellow;">
+
+                    We Have Famous Alumni Students as Notes Checker!!! <br>
+
+                    CLICK HERE AND GET FREE NOTES !!!!!
+
+
+
+                </h1>
+
+
+
+
+
+                <h2 style="font-family: 'Bebas Neue', cursive; padding-left: 80px; color: yellow;">
+
+
+                    <div class="dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Free Notes!
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                            <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='cse' %}">CSE</a>
+
+                            <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='mbbs' %}">MBBS</a>
+                            <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='eee' %}">EEE</a>
+                            <a class="dropdown-item" href="{% url 'noteSellingApp:course_list' slug='bba' %}">BBA</a>
+
+                        </div>
+                    </div>
+
+
+
+                </h2>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+</div>
+
+
+
+<div class="mt-3 mb-2 ">
+        <a href="http://www.freepik.com"><img src="{% static 'image/29493.jpg' %}" style=" width:100%; height:100%;" alt=""></a>
+
+</div>
+
+
+<!--review-->
+
+    <section class="py-5">
+        <div class="container">
+            <!-- FOR DEMO PURPOSE -->
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <header class="text-center pb-5">
+                        <h1 class="h2"></h1>
+                        <p><br>
+                            <a href="https://bootstrapious.com/snippets" class="font-italic text-info"></a>
+                        </p>
+                    </header>
+                </div>
+            </div>
+            <!-- END -->
+
+
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+
+                    <!-- CUSTOM BLOCKQUOTE -->
+                    <blockquote class="blockquote blockquote-custom  p-5 shadow rounded" style="background-image: linear-gradient(to right top, #b6cfd5, #a4d4dc, #8fd9e0, #77dee1, #5ce3df, #49dedf, #32d8df, #00d3df, #00c2de, #00b0da, #2b9ed1, #448cc4);">
+                        <div class="blockquote-custom-icon bg-info shadow-sm"><i
+                                class="fa fa-quote-left text-white"></i></div>
+                        <p class="mb-0 mt-2 font-italic">"This website will be helpful for students"<a href="#"
+                                class="text-info">@uiu</a>."</p>
+                        <footer class="blockquote-footer pt-4 mt-4 border-top">Sumon Ahmed
+                            <cite title="Source Title">-Faculty Of CSE Dept. UIU</cite>
+                        </footer>
+                    </blockquote>
+                    <!-- END -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-5">
+        <div class="container">
+            <!-- FOR DEMO PURPOSE -->
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <header class="text-center pb-5">
+                        <h1 class="h2"></h1>
+                        <p><br>
+                            <a href="https://bootstrapious.com/snippets" class="font-italic text-info"></a>
+                        </p>
+                    </header>
+                </div>
+            </div>
+            <!-- END -->
+
+
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+
+                    <!-- CUSTOM BLOCKQUOTE -->
+                    <blockquote class="blockquote blockquote-custom  p-5 shadow rounded" style="background-image: linear-gradient(to right top, #b6cfd5, #a4d4dc, #8fd9e0, #77dee1, #5ce3df, #49dedf, #32d8df, #00d3df, #00c2de, #00b0da, #2b9ed1, #448cc4);">
+                        <div class="blockquote-custom-icon bg-info shadow-sm"><i
+                                class="fa fa-quote-left text-white"></i></div>
+                        <p class="mb-0 mt-2 font-italic">"This website will be helpful for students"<a href="#"
+                                class="text-info">@uiu</a>."</p>
+                        <footer class="blockquote-footer pt-4 mt-4 border-top">Sumon Ahmed
+                            <cite title="Source Title">-Faculty Of CSE Dept. UIU</cite>
+                        </footer>
+                    </blockquote>
+                    <!-- END -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!--CARDS-->
+
+    <h1 class="text-center "
+        style="font-family: 'Bebas Neue', cursive;padding-top: 100px;padding-left: 30px; font-weight:bold;color: black;">
+
+        Check NOTES !!!!!
+        <hr>
+
+    </h1>
+
+
+<!--blog-->
+
+<div class="container-fluid mt-3">
+
+
+    <div class="row">
+
+
+        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3">
+
+            <div class="card shadow ">
+                <img src="{% static 'image/note.jpg' %}" id="o" class=" card-img-top img-fluid " alt="cardimage">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-family: 'sofia', sans-serif;">Anatomy</h5>
+
+                    <p class="card-text">Sell your Notes !</p>
+                    <a href="{% url 'noteSellingApp:course_list' slug='mbbs' %}" class="btn btn-primary w-100">Show
+                        More</a>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3">
+
+            <div class="card shadow">
+                <img src="{% static 'image/acv.jpg' %}" id="m" class="card-img-top img-fluid " alt="cardimage">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-family: 'sofia', sans-serif;"> Accounting </h5>
+
+                    <p class="card-text">Buy Notes at a reasonable price!</p>
+                    <a href="{% url 'noteSellingApp:course_list' slug='bba' %}" class="btn btn-primary w-100">Show
+                        More</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3">
+
+            <div class="card shadow ">
+                <img src="{% static 'image/bs.png' %}" id="m" class="card-img-top img-fluid" alt="cardimage">
+                <div class="card-body h-50">
+                    <h5 class="card-title" style="font-family: 'sofia', sans-serif;"> Electronics </h5>
+
+                    <p class="card-text">Share notes and Files with others ! </p>
+                    <a href="{% url 'noteSellingApp:course_list' slug='eee' %}" class="btn btn-primary w-100">Show
+                        More</a>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3">
+
+            <div class="card shadow">
+
+                <img src="{% static 'image/c.png' %}" id="v" class="card-img-top img-responsive "
+                    alt="cardimage">
+
+                <div class="card-body">
+                    <h5 class="card-title" style="font-family: 'sofia', sans-serif;">Programming </h5>
+
+                    <p class="card-text">Give Reviews! </p>
+                    <a href="{% url 'noteSellingApp:course_list' slug='cse' %}" class="btn btn-primary w-100">Show
+                        More</a>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+     <div class="row">
+
+
+        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3">
+
+            <div class="card shadow ">
+                <img src="{% static 'image/nt.jpg' %}" id="o" style="width: 300px; height: 200px;"class=" card-img-top img-fluid " alt="cardimage">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-family: 'sofia', sans-serif;">Math 003 </h5>
+
+                    <p class="card-text">Sell your Notes and earn money !</p>
+                    <a href="{% url 'noteSellingApp:course_list' slug='cse' %}" class="btn btn-primary w-100">Show
+                        More</a>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3">
+
+            <div class="card shadow">
+                <img src="{% static 'image/ph.png' %}" id="m" style="width: 300px; height: 200px;"class="card-img-top img-fluid " alt="cardimage">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-family: 'sofia', sans-serif;">Pharmacy</h5>
+
+                    <p class="card-text">Buy Notes at a reasonable price!</p>
+                    <a href="{% url 'noteSellingApp:course_list' slug='cse' %}" class="btn btn-primary w-100">Show
+                        More</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3">
+
+            <div class="card shadow ">
+                <img src="{% static 'image/k.png' %}" id="n" style="width: 300px; height: 200px;"class="card-img-top img-fluid" alt="cardimage">
+                <div class="card-body h-50">
+                    <h5 class="card-title" style="font-family: 'sofia', sans-serif;">Pattern </h5>
+
+                    <p class="card-text">Share notes and Knowledge with other members! </p>
+                    <a href="{% url 'noteSellingApp:course_list' slug='cse' %}" class="btn btn-primary w-100">Show
+                        More</a>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3">
+
+            <div class="card shadow">
+
+                <img src="{% static 'image/cm.png' %}" id="v" class="card-img-top img-responsive "
+                    alt="cardimage">
+
+                <div class="card-body">
+                    <h5 class="card-title" style="font-family: 'sofia', sans-serif;">Applied Chemistry-I</h5>
+
+                    <p class="card-text">Build a Strong Community</p>
+                    <a href="{% url 'noteSellingApp:course_list' slug='cse' %}" class="btn btn-primary w-100">Show
+                        More</a>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+    <!--blog-->
+    <h1 class="text-center "
+        style="font-family: 'Bebas Neue', cursive;padding-top: 100px;padding-left: 30px; font-weight:bold;color: black;">
+
+        WRITE BLOGS SHARE YOUR Achievements !!!!!
+
+    </h1>
+
+
+    <div class="jumbotron">
+
+        <div class="container">
+
+            <div class="row">
+
+
+                <div class="col-3 col-sm-12 col-12 col-md-6 col-lg-4 mt-3">
+                    <div class="card">
+                        <img class="card-img" src="{% static 'image/muzahid sir.jpg' %}">
+                        <div class="card-img-overlay">
+                            <a href="blog/achievements/1/research-paper-pulished-in-ieee/"
+                                class="btn btn-outline-success  btn-sm"> Achievements </a>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Research Paper Published in IEEE</h4>
+                            <small class="text-muted cat">
+
+                            </small>
+                            <p class="card-text">This paper proposes a spectRum Aware cRoss-layEr (RARE) medium access control protocol for cognitive radio ad-hoc networks. The RARE protocol initially splits the network into clusters, where cluster formation is defined as maximum edge biclique problem. Besides, in order to maintain the integrity of the cluster-based network, super-frame structure, and topology maintenance protocols are also presented in this paper.
+                            </p>
+                            <a href="{% url 'blogApp:topic_list' slug='club' %}" class="btn btn-info">Read more</a>
+                        </div>
+                        <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                            <div class="views">
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-3 col-sm-12 col-12 col-md-6 col-lg-4 mt-3">
+                    <div class="card">
+                        <img class="card-img" src="{% static 'image/sumon sir.jpg' %}" style="height:200px">
+                        <div class="card-img-overlay">
+                            <a href="{% url 'blogApp:topic_list' slug='events' %}"
+                                class="btn btn-outline-success  btn-sm">Events</a>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Seminar About Cyber Security</h4>
+                            <small class="text-muted cat">
+
+                            </small>
+                            <p class="card-text">Secure Passwords:
+The keys to our digital kingdom, passwords should be closely protected. A lot of the times, that’s all a cybercriminal needs to gain access to your account. The following articles not only teach you about HOW to make secure passwords and protect them, but WHY as well.
+
+How To Choose a Secure Password
+Password Managers Are The Key To Secure Passwords
+The Importance of Two-Factor Authentication</p>
+                            <a href="{% url 'blogApp:topic_list' slug='achievements' %}" class="btn  btn-info">Read
+                                more</a>
+                        </div>
+                        <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                            <div class="views">
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3 col-sm-12 col-12 col-md-6 col-lg-4 mt-3">
+                    <div class="card">
+                        <img class="card-img" src="{% static 'image/students.jpg' %}">
+                        <div class="card-img-overlay">
+                            <a href="{% url 'blogApp:topic_list' slug='ask-questions' %}"
+                                class="btn btn-outline-success  btn-sm"> Ask Questions </a>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title"> UIU Expert Students</h4>
+                            <small class="text-muted cat">
+
+                            </small>
+                            <p class="card-text">Ask Questions And Get Your Answers.Solve problem together.Programming questions are an integral part of any Java or C++ programmer or software analyst interview. No matter which language you have the expertise it’s expected that you are familiar with the fundamentals of programming and can solve problems without taking the help of API.
+                            </p>
+                            <a href="{% url 'blogApp:topic_list' slug='club' %}" class="btn btn-info">Read more</a>
+                        </div>
+                        <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                            <div class="views">
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!--TEAM-->
+
+    <div class="container-fluid mt-5">
+
+        <section id="team" class="pb-5 mt-5">
+            <div class="container mt-5">
+                <h5 class="section-title h1">OUR TEAM</h5>
+                <div class="row">
+                    <!-- Team member -->
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="image-flip">
+                            <div class="mainflip flip-0">
+                                <div class="frontside">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <p><img class=" img-fluid" src="{% static 'image/joy.jpg' %}"></p>
+                                            <h4 class="card-title">Pronoy Kumar das</h4>
+                                            <p class="card-text">UIU CSE</p>
+                                            <a href="https://www.fiverr.com/share/qb8D02"
+                                                class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="backside">
+                                    <div class="card">
+                                        <div class="card-body text-center mt-4">
+                                            <h4 class="card-title">About</h4>
+                                            <p class="card-text"> I am a full stack web developer.I like to work in
+                                                Django a python based backened framework. I also have skills in system design and analysis.
+                                            </p>
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-facebook"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-twitter"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-skype"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-google"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./Team member -->
+                    <!-- Team member -->
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                            <div class="mainflip">
+                                <div class="frontside">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <p><img class=" img-fluid" src="{% static 'image/shuvo.jpg' %}"></p>
+                                            <h4 class="card-title">Snehasish Shuvo</h4>
+                                            <p class="card-text">UIU CSE</p>
+                                            <a href="https://www.fiverr.com/share/qb8D02"
+                                                class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="backside">
+                                    <div class="card">
+                                        <div class="card-body text-center mt-4">
+                                            <h4 class="card-title">About</h4>
+                                            <p class="card-text">I am a researcher.I have skills in graphics,System
+                                                Design,UI design,Documentation making and frontend web development.
+                                            </p>
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-facebook"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-twitter"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-skype"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-google"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./Team member -->
+                    <!-- Team member -->
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                            <div class="mainflip">
+                                <div class="frontside">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <p><img class=" img-fluid" src="{% static 'image/ashik.jpg' %}"></p>
+                                            <h4 class="card-title">Ashik Arman</h4>
+                                            <p class="card-text">UIU CSE</p>
+                                            <a href="https://www.fiverr.com/share/qb8D02"
+                                                class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="backside">
+                                    <div class="card">
+                                        <div class="card-body text-center mt-4">
+                                            <h4 class="card-title">About</h4>
+                                            <p class="card-text">I am a researcher.I have skills in graphics,System
+                                                Design,UI design,Documentation making and frontend web development.
+                                            </p>
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-facebook"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-twitter"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-skype"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-google"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./Team member -->
+                    <!-- Team member -->
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                            <div class="mainflip">
+                                <div class="frontside">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <p><img class=" img-fluid" src="{% static 'image/sayeeda.jpg' %}"></p>
+                                            <h4 class="card-title">Sayeda Tanjila</h4>
+                                            <p class="card-text">UIU CSE</p>
+                                            <a href="https://www.fiverr.com/share/qb8D02"
+                                                class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="backside">
+                                    <div class="card">
+                                        <div class="card-body text-center mt-4">
+                                            <h4 class="card-title">About</h4>
+                                            <p class="card-text">I am a researcher.I have skills in graphics,System
+                                                Design,UI design,Documentation making and frontend web development.</p>
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-facebook"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-twitter"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-skype"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-google"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./Team member -->
+                    <!-- Team member -->
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                            <div class="mainflip">
+                                <div class="frontside">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <p><img class=" img-fluid" src="{% static 'image/students.jpg' %}"></p>
+                                            <h4 class="card-title">member</h4>
+                                            <p class="card-text">from uiu</p>
+                                            <a href="https://www.fiverr.com/share/qb8D02"
+                                                class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="backside">
+                                    <div class="card">
+                                        <div class="card-body text-center mt-4">
+                                            <h4 class="card-title"></h4>
+                                            <p class="card-text"></p>
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-facebook"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-twitter"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-skype"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-google"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./Team member -->
+                    <!-- Team member -->
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                            <div class="mainflip">
+                                <div class="frontside">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <p><img class=" img-fluid" src="{% static 'image/students.jpg' %}"></p>
+                                            <h4 class="card-title">member</h4>
+                                            <p class="card-text">from uiu</p>
+                                            <a href="https://www.fiverr.com/share/qb8D02"
+                                                class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="backside">
+                                    <div class="card">
+                                        <div class="card-body text-center mt-4">
+                                            <h4 class="card-title"></h4>
+                                            <p class="card-text"></p>
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-facebook"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-twitter"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-skype"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a class="social-icon text-xs-center" target="_blank"
+                                                        href="https://www.fiverr.com/share/qb8D02">
+                                                        <i class="fa fa-google"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./Team member -->
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+    <!--footer-->
+
+
+    <footer class="text-center text-lg-start bg-light text-muted" style=" background-color: blanchedalmond;
+font-family: 'Bebas Neue', cursive;font-weight:bold;color: black">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+            <!-- Left -->
+            <div class="me-5 d-none d-lg-block">
+                <span>Get connected with us on social networks:</span>
+            </div>
+            <!-- Left -->
+
+            <!-- Right -->
+            <div>
+                <a href="" class="me-4 text-reset">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-facebook" viewBox="0 0 16 16">
+                        <path
+                            d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                    </svg>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-twitter" viewBox="0 0 16 16">
+                        <path
+                            d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                    </svg>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-google" viewBox="0 0 16 16">
+                        <path
+                            d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
+                    </svg>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-instagram" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                    </svg>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-github" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                    </svg>
+
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-linkedin" viewBox="0 0 16 16">
+                        <path
+                            d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                    </svg>
+
+                </a>
+            </div>
+            <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase bold mb-4">
+                            <i class="fas fa-gem me-3"></i>About
+                        </h6>
+                        <p>
+                           We are students of United International University.
+                           We build this site for the university students of Bangladesh.
+                           Our main target is to build is a community of university students through this site.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+
+
+
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase bold mb-4">
+                            Contact
+                        </h6>
+                        <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-house" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                                <path fill-rule="evenodd"
+                                    d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                            </svg> Dhaka Bangladesh</p>
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-envelope" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z" />
+                            </svg>
+                            Bduniversity@gmail.com
+                        </p>
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-telephone" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                            </svg> ++8801705180683
+
+                        </p>
+
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color:rgb(112, 110, 110);">
+
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <!--footer-->
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<!--new-->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+  <!--js work autocomplete-->
+
+  <script>
+
+
+
+    $(function () {
+
+      $("#transcript").autocomplete({
+        source: "{% url 'noteSellingApp:autosuggest' %}"
+      });
+
+
+    });
+
+
+
+
+  </script>
+
+
+  <!--js-->
+
+  <script>  function startRecording() {
+
+      if (window.hasOwnProperty('webkitSpeechRecognition')) {
+
+        var recognition = new webkitSpeechRecognition();
+
+        recognition.continuous = false;
+
+        recognition.interimResults = false;
+
+        recognition.lang = "en-US";
+
+        recognition.start();
+
+        recognition.onresult = function (e) {
+
+          document.getElementById('transcript').value = e.results[0][0].transcript;
+
+          recognition.stop();
+
+          document.getElementById('speak-form').submit();
+
+        };
+
+        recognition.onerror = function (e) {
+
+          recognition.stop();
+
+        }
+
+      }
+
+    }
+
+  </script>
+
+
+
+
+
+
+
+</body>
+
+</html>

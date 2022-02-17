@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} Create {% endblock %}
+
+
+{% block content %}
+<style>
+  body {
+      background-image: linear-gradient(to right bottom, #d88bcd, #fe92a8, #ffa989, #efc77f, #cce397);
+}
+</style>
+
+<center>
+  <h2 class="mb-2 font-weight-bold" style="font-family: 'Bebas Neue', cursive;padding-top: 50px; font-weight:bold;color: black;"> POST INFORMATION </h2>
+</center>
+
+
+<div class='container mt-3 mb-3'>
+<form method="post" enctype="multipart/form-data">
+  <div class="form-group">
+  {% csrf_token %}
+  {{form|crispy}}
+  <input class="btn btn-success btn-lg btn-block" type="submit" value="Create">
+  </div>
+</form>
+</div>
+{% endblock %}
